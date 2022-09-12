@@ -14,7 +14,6 @@ the function below should be the only one in this file.
 
 /* Add a prototype for a helper function here if you need */
 
-Node* getTail(Node* n);
 void split(Node*& in, Node*& odds, Node*& evens)
 {
     if(in == NULL){

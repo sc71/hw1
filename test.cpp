@@ -1,5 +1,4 @@
 #include "split.h"
-#include "split.cpp"
 #include <cstdlib>
 #include <vector>
 
@@ -18,10 +17,8 @@ int main(){
     }
     h->next = NULL;
     
-    Node* odds = (Node*)malloc(sizeof(struct Node));
-    odds = NULL;
-    Node* evens = (Node*)malloc(sizeof(struct Node));
-    evens = NULL;
+    Node* odds = NULL;
+    Node* evens = NULL;
     
     split(in, odds, evens);
     
@@ -31,6 +28,20 @@ int main(){
     printList(odds);
     std::cout << "evens: ";
     printList(evens);
+    
+    free(in);
+    while(odds != NULL){
+        Node* temp = odds;
+        odds = odds->next;
+        free(temp);
+    }
+    while(evens != NULL){
+        Node* temp = evens;
+        evens = evens->next;
+        free(temp);
+    }
+    free(evens);
+    free(odds);
     return 0;
 }
 
