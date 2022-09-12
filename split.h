@@ -1,6 +1,7 @@
 #ifndef SPLIT_H
 #define SPLIT_H
-
+#include <cstdlib>
+#include <iostream>
 
 struct Node 
 {
@@ -18,5 +19,5 @@ struct Node
 };
 
 void split(Node*& in, Node*& odds, Node*& evens);
-// WRITE YOUR CODE HERE
+Node* getTail(Node* n);
 #endif
