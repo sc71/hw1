@@ -15,23 +15,32 @@ the function below should be the only one in this file.
 /* Add a prototype for a helper function here if you need */
 
 Node* getTail(Node* n);
-//void printList(Node* n);
 void split(Node*& in, Node*& odds, Node*& evens)
 {
-    if(in = NULL){
+    if(in == NULL){
         return;
     }
     else{
         //see if node value is odd or even and place it accordingly
         int val = in->value;
-        Node* node = &*in;
-        node->next = NULL;
+        Node* node = in;
         in = in->next;
+        node->next = NULL;
         if(val % 2 == 0){
-            getTail(evens)->next = node;
+            if(evens == NULL){
+                evens = node;
+            }
+            else{
+                getTail(evens)->next = node;
+            }
         }
         else{
-            getTail(odds)->next = node;
+            if(odds == NULL){
+                odds = node;
+            }
+            else{
+                getTail(odds)->next = node;
+            }
         }
         //remove sorted node from in
         split(in, odds, evens);
@@ -39,7 +48,7 @@ void split(Node*& in, Node*& odds, Node*& evens)
 }
 
 Node* getTail(Node* n){
-    if(n = NULL){
+    if(n->next == NULL){
         return n;
     }
     else{
