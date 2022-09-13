@@ -44,6 +44,8 @@ int main(int argc, char* argv[])
     //clear
     list->clear();
     cout << "size: " << list->size() << endl;
+    
+    delete list;
     return 0;
 }
 

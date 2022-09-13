@@ -60,10 +60,11 @@ void ULListStr::push_back(const std::string& val){
 void ULListStr::pop_back(){
     //if last value is only one in tail_ item
     if(tail_->last == 1){
-        //Item* temp = tail_;
+        Item* temp = tail_;
         tail_ = tail_->prev;
+        tail_->next = NULL;
         tail_->last = ARRSIZE;
-        //delete[] temp;
+        delete temp;
     }
     //if last value is not only one in tail_ item
     else{
@@ -107,10 +108,11 @@ void ULListStr::push_front(const std::string& val){
 void ULListStr::pop_front(){
     //if first is only value left in head_
     if(head_->first == ARRSIZE-1){
-        //Item* temp = head_;
+        Item* temp = head_;
         head_ = head_->next;
+        head_->prev = NULL;
         head_->first = 0;
-        //delete[] temp;
+        delete temp;
     }
     //if first value is not only one in head_
     else{
