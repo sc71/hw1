@@ -26,20 +26,24 @@ int main(int argc, char* argv[])
     list->push_back("twelve");
     list->push_back("thirteen");
     
-    printList(list, 0, 22);
+    //printList(list, 0, 22);
     
     //fix mistakes from earlier
     list->pop_front();
     list->set((size_t) 8, "one");
     
-    printList(list, 0, 22);
+    //printList(list, 0, 22);
     
+    //test get(size_t loc
+    cout << "list->get(3) = " << list->get(3) << endl;
+    cout << "list->get(11) = " << list->get(11) << endl;
+    cout << "list->get(11) = " << list->get(15) << endl;
     //pop front and back until two items are gone
     list->pop_front();
     list->pop_front();
     list->pop_back();
     
-    printList(list, 0, 10);
+    //printList(list, 0, 10);
     
     //clear
     list->clear();
@@ -49,7 +53,7 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-void printList(ULListStr* list, int start, int end){
+/*void printList(ULListStr* list, int start, int end){
     cout << "size: " << list->size() << endl;
     cout << "front: " << list->front() << endl;
     cout << "back: " << list->back() << endl;
@@ -60,4 +64,4 @@ void printList(ULListStr* list, int start, int end){
         }
         cout << endl;
     }
-}
+}*/

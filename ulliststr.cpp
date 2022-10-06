@@ -58,7 +58,7 @@ void ULListStr::push_back(const std::string& val){
 }
 
 void ULListStr::pop_back(){
-    //if last value is only one in tail_ item
+    //if last value is only one in tail_ item, remove that item
     if(tail_->last == 1){
         Item* temp = tail_;
         tail_ = tail_->prev;
@@ -174,17 +174,33 @@ void ULListStr::clear()
 }
 
 std::string* ULListStr::getValAtLoc(size_t loc) const{
-    //see which item in linkedlist index is
-    int itemNum = loc/10;
-    loc %= 10;
-    Item* item = head_;
-    for(int i=0; i<itemNum; i++){
-        item = item->next;
+    std::string* ptr = NULL;
+    int itemNum = 0;
+    int valNum = 0;
+    //if loc is out of array
+    if((int)loc >= size_){
+        return ptr;
     }
-    if(&(item->val[loc]) != NULL){
-        return &(item->val[loc]);
+    //if we are getting a value from head
+    if ((int) loc <= (head_->last - head_->first)){
+        valNum = head_->first + (int) loc - 1;
+        ptr = &head_->val[valNum];
+        return ptr;
     }
-    else{
-        return NULL;
+    //otherwise, we need to search other items in the list
+    else {
+        //if head is not a full array of 10, we need to shift our search
+        //valNum = the value we are looking for minus the indices in head_
+        valNum = (int)loc - (head_->last - head_->first);
+        //itemNum = number of items we have to traverse
+        itemNum = valNum/10;
+        //valNum = index in the itemNum-th array that our val is in
+        valNum %= 10;
+        Item* item = head_->next;
+        for(int i=0; i<itemNum; i++){
+            item = item->next;
+        }
+        ptr = &item->val[valNum];
+        return ptr;
     }
 }
