@@ -99,7 +99,8 @@ void ULListStr::push_front(const std::string& val){
     }
     //if list is not full
     else{
-        head_->val[head_->first-1] = val;
+        int pos = (int)head_->first - 1;
+        head_->val[pos] = val;
         head_->first -= 1;
     }
     size_++;
