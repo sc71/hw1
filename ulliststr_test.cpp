@@ -37,7 +37,12 @@ int main(int argc, char* argv[])
     //test get(size_t loc
     cout << "list->get(3) = " << list->get(3) << endl;
     cout << "list->get(11) = " << list->get(11) << endl;
-    cout << "list->get(11) = " << list->get(15) << endl;
+
+
+    //test set
+    list->set(3, "thirty");
+    cout << "after list.set, list->get(3) = " << list->get(3) << endl;
+    
     //pop front and back until two items are gone
     list->pop_front();
     list->pop_front();

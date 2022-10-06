@@ -178,7 +178,7 @@ std::string* ULListStr::getValAtLoc(size_t loc) const{
     int itemNum = 0;
     int valNum = 0;
     //if loc is out of array
-    if((int)loc >= size_){
+    if((int)loc >= size_ || (int)loc < 0){
         return ptr;
     }
     //if we are getting a value from head
