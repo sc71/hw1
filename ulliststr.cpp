@@ -183,7 +183,7 @@ std::string* ULListStr::getValAtLoc(size_t loc) const{
     }
     //if we are getting a value from head
     if ((int) loc <= (head_->last - head_->first)){
-        valNum = head_->first + (int) loc - 1;
+        valNum = head_->first + (int) loc;
         ptr = &head_->val[valNum];
         return ptr;
     }
