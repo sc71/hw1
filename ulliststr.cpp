@@ -99,7 +99,7 @@ void ULListStr::push_front(const std::string& val){
     }
     //if list is not full
     else{
-        int pos = (int)head_->first - 1;
+        int pos = head_->first - 1;
         head_->val[pos] = val;
         head_->first -= 1;
     }
@@ -179,11 +179,11 @@ std::string* ULListStr::getValAtLoc(size_t loc) const{
     int itemNum = 0;
     int valNum = 0;
     //if loc is out of array
-    if((int)loc >= size_ || (int)loc < 0){
+    if(loc >= size_ || (int)loc < 0){
         return ptr;
     }
     //if we are getting a value from head
-    if ((int) loc <= (head_->last - head_->first)){
+    if (loc < (head_->last - head_->first)){
         valNum = head_->first + (int) loc;
         ptr = &head_->val[valNum];
         return ptr;

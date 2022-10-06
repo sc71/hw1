@@ -16,6 +16,7 @@ int main(int argc, char* argv[])
     list->push_front("seven");
     //mistake to be fixed (pop this)
     list->push_front("eight");
+    cout<< "get(3)" << list->get(3) << endl;
     list->push_back("five");
     list->push_back("six");
     list->push_back("seven");
@@ -37,11 +38,29 @@ int main(int argc, char* argv[])
     //test get(size_t loc
     cout << "list->get(3) = " << list->get(3) << endl;
     cout << "list->get(11) = " << list->get(11) << endl;
+    cout << "list->get(size-1) = " << list->get(list->size() - 1) << endl;
+    cout << "list.get(0) = " << list->get(0) << endl;
 
 
+
+    //test push_front
+    cout << "list size: " << list->size() << endl;
+    cout << "list back: " << list->back() << endl;
+    cout << "list front: " << list->front() << endl;
+    list->push_front("forty");
+    cout << "list.get(0) = " << list->get(0) << endl;
+    cout << "list front: " << list->front() << endl;
+
+    cout << "list size: " << list->size() << endl;
+    cout << "list back: " << list->back() << endl;
+    cout << "list front: " << list->front() << endl;
+    list->push_back("forty");
+    cout << "list.get(arrsize) = " << list->get(14) << endl;
+    cout << "list front: " << list->front() << endl;
     //test set
-    list->set(3, "thirty");
-    cout << "after list.set, list->get(3) = " << list->get(3) << endl;
+    //cout << "list.get(3) = " << list->get(3) << endl;
+    //list->set(3, "thirty");
+    //cout << "after list.set, list->get(3) = " << list->get(3) << endl;
     
     //pop front and back until two items are gone
     list->pop_front();
